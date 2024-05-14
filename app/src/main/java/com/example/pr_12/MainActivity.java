@@ -55,7 +55,18 @@ public class MainActivity extends AppCompatActivity {
             return;
         }
 
-        AlertDialog("Уведомление", "Заказ оформлен.");
+        // Создание диалогового окна для подтверждения или отмены заказа
+        String[] tables = {"Столик 1", "Столик 2", "Столик 3", "Столик 4", "Столик 5"};
+        new AlertDialog.Builder(this)
+                .setTitle("Выбор столика")
+                .setSingleChoiceItems(tables, 0, null)
+                .setPositiveButton("Выбор", (dialog, which) -> {
+                    int selectedPosition = ((AlertDialog)dialog).getListView().getCheckedItemPosition();
+                    // Код для выполнения при выборе столика
+                    AlertDialog("Уведомление", "Вы выбрали " + tables[selectedPosition]);
+                })
+                .setNegativeButton("Отменить", null)
+                .show();
     }
 
     @Override
