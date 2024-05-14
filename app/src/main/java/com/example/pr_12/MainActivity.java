@@ -63,7 +63,7 @@ public class MainActivity extends AppCompatActivity {
                 .setPositiveButton("Выбор", (dialog, which) -> {
                     int selectedPosition = ((AlertDialog)dialog).getListView().getCheckedItemPosition();
                     // Код для выполнения при выборе столика
-                    AlertDialog("Уведомление", "Вы выбрали " + tables[selectedPosition]);
+                    AlertDialog("Уведомление", "Был оформлен заказ, вы выбрали " + tables[selectedPosition]);
                 })
                 .setNegativeButton("Отменить", null)
                 .show();
